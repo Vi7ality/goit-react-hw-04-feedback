@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+
 import React, { Component } from 'react';
 
 export class Feedback extends Component {
@@ -6,7 +6,9 @@ export class Feedback extends Component {
     step: 1,
   };
 
-  static propTypes = {};
+  static propTypes = {
+
+  };
 
   state = {
     good: 0,
