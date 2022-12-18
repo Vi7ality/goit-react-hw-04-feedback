@@ -1,14 +1,13 @@
-
 import React, { Component } from 'react';
+import { ButtonList } from 'components/ButtonList/ButtonList';
+import { Statistics } from 'components/Statistics/Statistics';
 
 export class Feedback extends Component {
   static defaultProps = {
     step: 1,
   };
 
-  static propTypes = {
-
-  };
+  static propTypes = {};
 
   state = {
     good: 0,
@@ -23,78 +22,27 @@ export class Feedback extends Component {
   };
 
   countTotalFeedback = () => {
-    Object.values(this.state).reduce((acc, value) => {
-      
-        return acc + value
-      }, 0)
-
+    return Object.values(this.state).reduce((acc, value) => {
+      return acc + value;
+    }, 0);
   };
 
+  countPositivePercentage = (total) => {
+return ((this.state.good / this.countTotalFeedback()) * 100).toFixed(0)
+  }
+
   render() {
-    const { good, neutral, bad } = this.state;
-
-
     return (
       <div>
         <h1>Please, leave feedback</h1>
-        <ul>
-          <li>
-            <button
-              onClick={() => {
-                this.handleIncrement('good');
-              }}
-              type="button"
-            >
-              Good
-            </button>
-          </li>
-          <li>
-            <button
-              onClick={() => {
-                this.handleIncrement('neutral');
-              }}
-              type="button"
-            >
-              Neutral
-            </button>
-          </li>
-          <li>
-            <button
-              onClick={() => {
-                this.handleIncrement('bad');
-              }}
-              type="button"
-            >
-              Bad
-            </button>
-          </li>
-        </ul>
-        <div>
-          <h2>Statistics</h2>
-          <ul>
-            <li>
-              <p>Good:</p>
-              <p>{good}</p>
-            </li>
-            <li>
-              <p>Neutral:</p>
-              <p>{neutral}</p>
-            </li>
-            <li>
-              <p>Bad:</p>
-              <p>{bad}</p>
-            </li>
-
-            <li>
-              <p>Total:</p>
-              <p>{this.countTotalFeedback}</p>
-            </li>
-            <li>
-              <p>Positive feedback:</p>
-              <p></p>
-            </li>
-          </ul>
-        </div>
+        <ButtonList handleIncrement={this.handleIncrement}></ButtonList>
+        <Statistics
+          good={this.state.good}
+          neutral={this.state.neutral}
+          bad={this.state.bad}
+          total={this.countTotalFeedback()}
+          positive={this.countPositivePercentage()}
+        ></Statistics>
       </div>
     );
   }
