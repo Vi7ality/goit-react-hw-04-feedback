@@ -1,41 +1,47 @@
 import { Component } from 'react';
+import PropTypes from 'prop-types'
+import { Button, ButtonItem, ButtonListStyled } from './ButtonList.styled';
 
 export class ButtonList extends Component {
-  static propTypes = {};
+  static propTypes = {
+    handleIncrement: PropTypes.func.isRequired,
+  };
   render() {
     return (
-      <ul>
-        <li>
-          <button
+      <ButtonListStyled>
+        <ButtonItem>
+          <Button activeColor={'green'}
             onClick={() => {
               this.props.handleIncrement('good');
             }}
             type="button"
           >
             Good
-          </button>
-        </li>
-        <li>
-          <button
+          </Button>
+        </ButtonItem>
+        <ButtonItem>
+          <Button
+            activeColor={'yellow'}
             onClick={() => {
               this.props.handleIncrement('neutral');
             }}
             type="button"
           >
             Neutral
-          </button>
-        </li>
-        <li>
-          <button
+          </Button>
+        </ButtonItem>
+        <ButtonItem>
+          <Button
+            activeColor={'red'}
             onClick={() => {
               this.props.handleIncrement('bad');
             }}
             type="button"
           >
             Bad
-          </button>
-        </li>
-      </ul>
+          </Button>
+        </ButtonItem>
+      </ButtonListStyled>
     );
   }
 }

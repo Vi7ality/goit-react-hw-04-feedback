@@ -27,22 +27,23 @@ export class Feedback extends Component {
     }, 0);
   };
 
-  countPositivePercentage = (total) => {
-return ((this.state.good / this.countTotalFeedback()) * 100).toFixed(0)
-  }
+  countPositivePercentage = total => {
+    return ((this.state.good / this.countTotalFeedback()) * 100).toFixed(0);
+  };
 
   render() {
     return (
       <div>
         <h1>Please, leave feedback</h1>
         <ButtonList handleIncrement={this.handleIncrement}></ButtonList>
-        <Statistics
+        {this.countTotalFeedback() === 0 ? (<p> No feedback was given</p>) : (<Statistics
           good={this.state.good}
           neutral={this.state.neutral}
           bad={this.state.bad}
           total={this.countTotalFeedback()}
           positive={this.countPositivePercentage()}
-        ></Statistics>
+        ></Statistics>)}
+        
       </div>
     );
   }
