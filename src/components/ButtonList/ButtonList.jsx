@@ -1,18 +1,59 @@
-import { Component } from 'react';
+// import { Component } from 'react';
 import PropTypes from 'prop-types'
 import { Button, ButtonItem, ButtonListStyled } from './ButtonList.styled';
 
-export class ButtonList extends Component {
-  static propTypes = {
-    handleIncrement: PropTypes.func.isRequired,
-  };
-  render() {
-    return (
+// export class ButtonList extends Component {
+//   static propTypes = {
+//     handleIncrement: PropTypes.func.isRequired,
+//   };
+//   render() {
+//     return (
+//       <ButtonListStyled>
+//         <ButtonItem>
+//           <Button activeColor={'green'}
+//             onClick={() => {
+//               this.props.handleIncrement('good');
+//             }}
+//             type="button"
+//           >
+//             Good
+//           </Button>
+//         </ButtonItem>
+//         <ButtonItem>
+//           <Button
+//             activeColor={'yellow'}
+//             onClick={() => {
+//               this.props.handleIncrement('neutral');
+//             }}
+//             type="button"
+//           >
+//             Neutral
+//           </Button>
+//         </ButtonItem>
+//         <ButtonItem>
+//           <Button
+//             activeColor={'red'}
+//             onClick={() => {
+//               this.props.handleIncrement('bad');
+//             }}
+//             type="button"
+//           >
+//             Bad
+//           </Button>
+//         </ButtonItem>
+//       </ButtonListStyled>
+//     );
+//   }
+// }
+
+
+export function ButtonList(handleIncrement) {
+  return (
       <ButtonListStyled>
         <ButtonItem>
           <Button activeColor={'green'}
             onClick={() => {
-              this.props.handleIncrement('good');
+              handleIncrement('good');
             }}
             type="button"
           >
@@ -23,7 +64,7 @@ export class ButtonList extends Component {
           <Button
             activeColor={'yellow'}
             onClick={() => {
-              this.props.handleIncrement('neutral');
+              handleIncrement('neutral');
             }}
             type="button"
           >
@@ -34,7 +75,7 @@ export class ButtonList extends Component {
           <Button
             activeColor={'red'}
             onClick={() => {
-              this.props.handleIncrement('bad');
+              handleIncrement('bad');
             }}
             type="button"
           >
@@ -42,6 +83,5 @@ export class ButtonList extends Component {
           </Button>
         </ButtonItem>
       </ButtonListStyled>
-    );
-  }
+    )
 }
