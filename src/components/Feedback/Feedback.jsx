@@ -50,9 +50,9 @@ import { Statistics } from 'components/Statistics/Statistics';
 // }
 
 export function Feedback(step = 1) {
-  const [good, setGood] = useState(1);
-  const [neutral, setNeutral] = useState(1);
-  const [bad, setBad] = useState(1);
+  const [good, setGood] = useState(0);
+  const [neutral, setNeutral] = useState(0);
+  const [bad, setBad] = useState(0);
   const [total, setTotal] = useState(0);
   const [positive, setPositive] = useState(0);
 

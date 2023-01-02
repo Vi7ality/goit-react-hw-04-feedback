@@ -47,13 +47,13 @@ import { Button, ButtonItem, ButtonListStyled } from './ButtonList.styled';
 // }
 
 
-export function ButtonList(handleIncrement) {
+export function ButtonList(props) {
   return (
       <ButtonListStyled>
         <ButtonItem>
           <Button activeColor={'green'}
             onClick={() => {
-              handleIncrement('good');
+              props.handleIncrement('good');
             }}
             type="button"
           >
@@ -64,7 +64,7 @@ export function ButtonList(handleIncrement) {
           <Button
             activeColor={'yellow'}
             onClick={() => {
-              handleIncrement('neutral');
+              props.handleIncrement('neutral');
             }}
             type="button"
           >
@@ -75,7 +75,7 @@ export function ButtonList(handleIncrement) {
           <Button
             activeColor={'red'}
             onClick={() => {
-              handleIncrement('bad');
+              props.handleIncrement('bad');
             }}
             type="button"
           >

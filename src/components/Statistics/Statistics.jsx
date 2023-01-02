@@ -43,7 +43,7 @@ import { StatisticItem, StatisticName } from './Statistics.styled';
 //   }
 // }
 
-export function Statistics(good, neutral, bad, total, positive) {
+export function Statistics(props) {
   
   return(
       <div>
@@ -51,24 +51,24 @@ export function Statistics(good, neutral, bad, total, positive) {
         <ul>
           <StatisticItem>
             <StatisticName>Good:</StatisticName>
-            <p>{good}</p>
+            <p>{props.good}</p>
           </StatisticItem>
           <StatisticItem>
             <StatisticName>Neutral:</StatisticName>
-            <p>{neutral}</p>
+            <p>{props.neutral}</p>
           </StatisticItem>
           <StatisticItem>
             <StatisticName>Bad:</StatisticName>
-            <p>{bad}</p>
+            <p>{props.bad}</p>
           </StatisticItem>
 
           <StatisticItem>
             <StatisticName>Total:</StatisticName>
-            <p>{total}</p>
+            <p>{props.total}</p>
           </StatisticItem>
           <StatisticItem>
             <StatisticName>Positive feedback:</StatisticName>
-            <p>{positive > 0 ? this.props.positive : 0}%</p>
+            <p>{props.positive > 0 ? props.positive : 0}%</p>
           </StatisticItem>
         </ul>
       </div>
